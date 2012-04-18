@@ -414,12 +414,12 @@ public class TaciProgram extends JFrame {
 	}
 	
 	private void updateStatus(int opens, int close, float f, int step, String status, int speed) {
-		pnlStatus.setOpens(opens);
-		pnlStatus.setCloses(close);
+		//pnlStatus.setOpens(opens);
+		//pnlStatus.setCloses(close);
 		pnlStatus.setTimeCost(f);
 		pnlStatus.setSteps(step);
 		pnlStatus.setCurrentStatus(status);
-		pnlStatus.setCurrentSwappingSpeed(speed <= 10 ? "Quick" : "Normal");
+		//pnlStatus.setCurrentSwappingSpeed(speed <= 10 ? "Quick" : "Normal");
 	}
 	
 	private void createNewPopupData() throws DataNotSuitableException {
