@@ -1,0 +1,1 @@
+jar -cvfm filename.jar manifest.txt *.*

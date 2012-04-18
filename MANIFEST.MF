@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: taci.program.Program
+Created-By: 1.6.0_23 (Sun Microsystems Inc.)
+
