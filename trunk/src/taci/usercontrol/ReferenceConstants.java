@@ -47,8 +47,8 @@ public class ReferenceConstants {
 														"f = %d<br/>" +
 														"<u><strong>Note: </strong></u><br/>" +
 														"<li><i>f(n) = g(n) + h(n).</i><br/>"+
-														"<i>g(n)</i>: số bước đi.<br/>"+
-														"<i>h(n)</i>: tổng số sai lệch của tất cả các ô so với vị trí đích."+
+														"<i>g(n)</i>: sá»‘ bÆ°á»›c Ä‘i.<br/>"+
+														"<i>h(n)</i>: tá»•ng sá»‘ sai lá»‡ch cá»§a táº¥t cáº£ cÃ¡c Ã´ so vá»›i vá»‹ trÃ­ Ä‘Ã­ch."+
 														"</html>";
 	public static final Color TOOLTIP_BACKGROUND_COLOR = Color.getHSBColor(0.3f, 0.1f, 0.9f);
 	public static final Color TOOLTIP_BORDER_COLOR = Color.BLUE;
@@ -171,10 +171,13 @@ public class ReferenceConstants {
 	public static final String LEGEND_TC_DIED_BOARD = "<html>Refer a board which has <font color=blue><i><b>no next available movement</b></i></font> for next step.</html>";
 	public static final String LEGEND_TC_BEST_BOARD = "<html>Refer a board which is <font color=blue><i><b>the best</b></i></font> of each step.</html>";
 	
-	public static final String INFORMATION_MESSAGE = "<html>Programed by <font color=blue><b>Trần Văn Bình</b></font> <br/>" +
-														"<b><i>University of Information Technology</i></b><br/>"+
-														"Student ID : <font color=blue><b>07520026</b></font><br/>" +
-														"Email: <a href=\"http://www.google.com\">binh12121989@gmail.com</a></html>";
+	public static final String INFORMATION_MESSAGE = "<html>Trường Đại học công nghệ thông tin<br/>"+
+														"Khoa công nghệ phần mềm<br>"+
+														"Môn : Một số thuật toán thông minh<br>"+
+														"<br>Giảng viên : <font color=red><b>PGS/TS. Vũ Thanh Nguyên</b></font><br>"+
+														"<br>Sinh viên : <font color=red><b>Nguyễn Công Huy</b></font> <br/>" +
+														"MSSV: <font color=red><b>08520148</b></font><br/>" +
+														"Email: conghuy2012@gmail.com</html>";
 	
 	//RUNTIME
 	public static final long MAX_HEAP_SIZE = Runtime.getRuntime().maxMemory();

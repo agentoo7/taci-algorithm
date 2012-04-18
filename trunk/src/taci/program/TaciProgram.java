@@ -61,9 +61,9 @@ import taci.usercontrol.exception.TargetUnreachableException;
 public class TaciProgram extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	public static final String READY = "Ready";
-	public static final String SWAPPING = "Swapping...";
-	public static final String CALCULATING = "Calculating...";
+	public static final String READY = "Sẵn sàng";
+	public static final String SWAPPING = "Đang thực hiện ...";
+	public static final String CALCULATING = "Đang tính toán ...";
 	
 	/*For step by step mode*/
 	private List<TaciBoard> screenBoards = new ArrayList<TaciBoard>();
@@ -83,41 +83,41 @@ public class TaciProgram extends JFrame {
 	private List<TaciNode> closedNodes = new ArrayList<TaciNode>();
 	private int step = 0;
 	
-	private JMenuItem jmDefault = new MyRadioMenuItem("Default", true, UIManager.getSystemLookAndFeelClassName());
+	/*private JMenuItem jmDefault = new MyRadioMenuItem("Default", true, UIManager.getSystemLookAndFeelClassName());
 	private JMenuItem jmGTK = new MyRadioMenuItem("GTK", LAF_GTK);
 	private JMenuItem jmMetal = new MyRadioMenuItem("Metal", LAF_METAL);
 	private JMenuItem jmNotify = new MyRadioMenuItem("Notify", LAF_NOTIFY);
 	private JMenuItem jmNimbus = new MyRadioMenuItem("Nimbus", LAF_NIMBUS);
-	private JMenuItem jmWindows = new MyRadioMenuItem("Windows", LAF_WINDOWS);
+	private JMenuItem jmWindows = new MyRadioMenuItem("Windows", LAF_WINDOWS);*/
 	
-	private JMenuItem fileNew = new JMenuItem("New");
-	private JMenuItem jmRun = new JMenuItem("Run");
-	private JMenuItem jmSwapWhenEqual = new JCheckBoxMenuItem("Swap when equal", true);
+	private JMenuItem fileNew = new JMenuItem("Tạo mới");
+	private JMenuItem jmRun = new JMenuItem("Chạy");
+	//private JMenuItem jmSwapWhenEqual = new JCheckBoxMenuItem("Swap when equal", true);
 	
 	public TaciProgram() throws Exception {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(J_WIDTH, J_HEIGHT);
 		setLayout(null);
-		setTitle("Testing");
+		setTitle("Chương trình mô phỏng giải bài toán Taci - Nguyễn Công Huy");
 		setResizable(RESIZABLE);
 		
 		createNewPopupData();
 	
 		//Create the menu
 		JMenuBar menubar = new JMenuBar();
-	    JMenu jmFile = new JMenu("File");
-	    jmFile.setMnemonic('F');
+	    JMenu jmFile = new JMenu("Tệp");
+	    jmFile.setMnemonic('T');
 	    jmFile.add(new JSeparator());
-	    JMenu jmStyle = new JMenu("Styles");
+	    /*JMenu jmStyle = new JMenu("Styles");
 	    jmStyle.setMnemonic('s');
-	    jmStyle.add(new JSeparator());
+	    jmStyle.add(new JSeparator());*/
 	    
 	    jmRun.setEnabled(false);
-	    jmRun.setMnemonic('u');
+	    jmRun.setMnemonic('C');
 	    jmRun.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String[] choices = { "Automation", "Step by Step" };
+				/*String[] choices = { "Automation", "Step by Step" };
 				int response = JOptionPane.showOptionDialog(null // Center in
 																	// window.
 						, "Which kind of mode you want to play?" // Message
@@ -127,9 +127,9 @@ public class TaciProgram extends JFrame {
 						, null // Icon (none)
 						, choices // Button text as above.
 						, "Automation" // Default button's label
-				);
+				);*/
 				
-				if(response == 0) {
+				//if(response == 0) {
 					final long start = System.currentTimeMillis();
 						Thread th = new Thread() {
 							public void run() {
@@ -170,7 +170,7 @@ public class TaciProgram extends JFrame {
 						};
 
 						th.start();
-				} else if(response == 1) {//Step by step mode
+				/*} else if(response == 1) {//Step by step mode
 					JOptionPane.showMessageDialog(null, STEP_BY_STEP_MAY_USE_A_LOT_MEMORY);
 					final long start = System.currentTimeMillis();
 						if(screenBoards.size() <= 1) { //Check if screenboard is empty, do the heuristic
@@ -237,9 +237,9 @@ public class TaciProgram extends JFrame {
 							
 							th.start();
 						} else {
-							viewToScreen(); //Just view all best board to the screen
-						}
-					}
+							viewToScreen(); //Just view all best board to the screen*/
+						//}
+					//}
 				}
 			});
 	    
@@ -286,10 +286,10 @@ public class TaciProgram extends JFrame {
 			}
 		});
 	    
-	    jmSwapWhenEqual.setMnemonic('w');
-	    jmSwapWhenEqual.setToolTipText(ReferenceConstants.SWAP_WHEN_EQUAL_TOOL_TIP);
+	    //jmSwapWhenEqual.setMnemonic('w');
+	    //jmSwapWhenEqual.setToolTipText(ReferenceConstants.SWAP_WHEN_EQUAL_TOOL_TIP);
 	    
-	    JMenuItem fileSwapSpeed = new JMenuItem("Swapping speed...");
+	    /*JMenuItem fileSwapSpeed = new JMenuItem("Swapping speed...");
 	    fileSwapSpeed.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -312,16 +312,16 @@ public class TaciProgram extends JFrame {
 					pnlStatus.setCurrentSwappingSpeed(String.format("Normal"));
 				}
 			}
-		});
+		});*/
 	    
 	    jmFile.add(fileNew);
 	    jmFile.add(jmRun);
-	    jmFile.add(jmSwapWhenEqual);
+	    //jmFile.add(jmSwapWhenEqual);
 	    jmFile.addSeparator();
-	    jmFile.add(fileSwapSpeed);
+	    //jmFile.add(fileSwapSpeed);
 	    jmFile.add(fileExit);
 	    
-	    ButtonGroup group = new ButtonGroup();
+	    /*ButtonGroup group = new ButtonGroup();
 	    group.add(jmDefault);
 	    group.add(jmGTK);
 	    group.add(jmMetal);
@@ -352,13 +352,13 @@ public class TaciProgram extends JFrame {
 	    
 	    jmStyle.add(jmWindows);
 	    jmWindows.setMnemonic('w');
-	    jmWindows.addActionListener(new MyActionListener());
+	    jmWindows.addActionListener(new MyActionListener());*/
 	    
 	    //author's information menu
 	    JMenu jmInfo = new JMenu();
-	    jmInfo.setText("Help");
+	    jmInfo.setText("Trợ giúp");
 	    
-	    JMenuItem jmiAbout = new JMenuItem("About");
+	    JMenuItem jmiAbout = new JMenuItem("Về chương trình");
 	    jmInfo.add(jmiAbout);
 	    jmiAbout.addActionListener(new ActionListener() {
 			@Override
@@ -368,7 +368,7 @@ public class TaciProgram extends JFrame {
 					@Override
 					public void run() {
 						JOptionPane.showMessageDialog(null,
-								INFORMATION_MESSAGE, "Infomation",
+								INFORMATION_MESSAGE, "Thông tin",
 								JOptionPane.INFORMATION_MESSAGE);
 					}
 				});
@@ -378,7 +378,7 @@ public class TaciProgram extends JFrame {
 	    
 	    
 	    menubar.add(jmFile);
-	    menubar.add(jmStyle);
+	    //menubar.add(jmStyle);
 	    menubar.add(jmInfo);
 	    setJMenuBar(menubar);
 	    	    
@@ -597,19 +597,19 @@ public class TaciProgram extends JFrame {
 	
 	private TaciBoard getBestBoard() {
 		TaciBoard bestBoard = openedBoards.get(0);
-		if (jmSwapWhenEqual.isSelected()) {
+		//if (jmSwapWhenEqual.isSelected()) {
 			for (TaciBoard tb : openedBoards) {
 				if (tb.getG() + tb.getH() - bestBoard.getG() - bestBoard.getH() <= 0) {
 					bestBoard = tb;
 				}
 			}
-		} else {
+		/*} else {
 			for (TaciBoard tb : openedBoards) {
 				if (tb.getG() + tb.getH() - bestBoard.getG() - bestBoard.getH() < 0) {
 					bestBoard = tb;
 				}
 			}
-		}
+		}*/
 		
 		if(!bestBoard.getTitle().equals(GOAL_TITLE) && !bestBoard.getTitle().equals(INITIAL_TITLE)) {
 			bestBoard.setBackgroundJ(TACI_CELL_BEST_BOARD_BACK_COLOR);
@@ -620,19 +620,19 @@ public class TaciProgram extends JFrame {
 	
 	private TaciNode getBestNode() {
 		TaciNode bestNode = openedNodes.get(0);
-		if (jmSwapWhenEqual.isSelected()) {
+		//if (jmSwapWhenEqual.isSelected()) {
 			for (TaciNode tc : openedNodes) {
 				if (tc.getG() + tc.getH() - bestNode.getG() - bestNode.getH() <= 0) {
 					bestNode = tc;
 				}
 			}
-		} else {
+		/*} else {
 			for (TaciNode tc : openedNodes) {
 				if (tc.getG() + tc.getH() - bestNode.getG() - bestNode.getH() < 0) {
 					bestNode = tc;
 				}
 			}
-		}
+		}*/
 		
 		return bestNode;
 	}
@@ -667,7 +667,7 @@ public class TaciProgram extends JFrame {
 	 * @author BINH
 	 * @version 1.0
 	 * */
-	private class MyActionListener implements ActionListener {
+	/*private class MyActionListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -684,5 +684,5 @@ public class TaciProgram extends JFrame {
 				jmDefault.doClick();
 			}
 		}
-	}
+	}*/
 }
