@@ -14,7 +14,7 @@ import javax.swing.BorderFactory;
 /**
  * Contains all constants that are used in whole taci program.
  * Constants may be a tool tip text or the size of {@link TaciCell} and all things.
- * @author BINH
+ * @author HUY
  * @version 1.0
  * */
 public class ReferenceConstants {
@@ -127,11 +127,11 @@ public class ReferenceConstants {
 	//TACI JFRAME
 	public static final int J_WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
 	public static final int J_HEIGHT = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().height;
-	public static final int HEIGHT_SCREEN = 300;
-	public static final int WIDTH_SCREEN = 300;
+	public static final int WIDTH_SCREEN = 400;
+	public static final int HEIGHT_SCREEN = 400;
 	public static final boolean RESIZABLE = true;
-	public static final int INITIAL_LEFT_BOARD = 0;
-	public static final int INITIAL_TOP_BOARD = 0;
+	public static final int INITIAL_LEFT_BOARD = WIDTH_SCREEN/2-50;
+	public static final int INITIAL_TOP_BOARD = 30;
 	public static final int RIGHT_BOARD_PADING = CELL_SIZE * BOARD_MAXTRIX_SIZE;
 	public static final String GOAL_TITLE = "Goal";
 	public static final String NEXT_TITLE = "Step ";
@@ -149,24 +149,22 @@ public class ReferenceConstants {
 	public static final int NEW_Y_LOC_WHEN_FULL = 20;
 	
 	//TACI new window
-	public static final int NEW_WINDOW_HEIGHT = 200;
-	public static final int NEW_WINDOW_WIDTH = 475;
+	public static final int NEW_WINDOW_HEIGHT = 300;
+	public static final int NEW_WINDOW_WIDTH = 200;
 	public static final int NEW_WINDOW_PADING = 30;
 	public static final String NEW_TITLE = "New taci";
 	
 	
 	//TACI STAUS bar
-	public static final String STATUS_BAR_TITLE = "Status";
-	public static final String STATUS_BAR_OPENED_NUMBER = "<html>Open: <font color=blue><i><b>%d</b></i></font></html>";
-	public static final String STATUS_BAR_CLOSED_NUMBER = "<html>Close: <font color=blue><i><b>%d</b></i></font></html>";
-	public static final String STATUS_BAR_TIME_COST = "<html>Time: <font color=blue><i><b>%f</b></i></font> s</html>";
-	public static final String STATUS_BAR_STEPS_NUMBER = "<html>Steps: <font color=blue><i><b>%d</b></i></font></html>";
+	public static final String STATUS_BAR_TITLE = "Trạng thái";
+	public static final String STATUS_BAR_TIME_COST = "<html>Thời gian: <i><b>%f</b></i> s</html>";
+	public static final String STATUS_BAR_STEPS_NUMBER = "<html>Số bước: <i><b>%d</b></i></html>";
 	
 	//TACI MESSAGE
 	public static final String STEP_BY_STEP_MAY_USE_A_LOT_MEMORY = "<html>Step by step mode may use <b>a lot of memmory</b> to track all detail steps.</html>";
 	public static final String DND_LABEL_TOOL_TIP = "Drag and drop the cell to modify the taci board";
 	public static final String SWAP_WHEN_EQUAL_TOOL_TIP = "<html>When comparing the f, if it is checked, <b>the last node</b> will be chosen among equaled-f nodes </html>";
-	public static final String STATUS = "<html>Status: <font color=blue><i><b>%s</b></i></font></html>";
+	public static final String STATUS = "<html>Trạng thái: <font color=blue><i><b>%s</b></i></font></html>";
 	public static final String STATUS_SWAPING_SPEED = "<html>Swapping speed: <font color=blue><i><b>%s</b></i></font></html>";
 	
 	public static final String LEGEND_TC_HAVE_NEXT_AVAILABLE_MOVEMENT = "<html>Refer a board which has <font color=blue><i><b>next available movement</b></i></font> for next step.</html>";

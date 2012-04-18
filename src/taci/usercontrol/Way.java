@@ -6,7 +6,7 @@ import taci.commons.Direction;
 
 /**
  * Show the way: Where to go and direction.
- * @author BINH
+ * @author HUY
  * @version 1.0
  * */
 public class Way {

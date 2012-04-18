@@ -9,7 +9,7 @@ import taci.usercontrol.exception.DataNotSuitableException;
 
 /**
  * Executable class. Call the JVM - Java Virtual Machine to invoke the program.
- * @author BINH
+ * @author HUY
  * @version 1.0
  * */
 public class Program {

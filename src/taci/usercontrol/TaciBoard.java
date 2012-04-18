@@ -50,7 +50,7 @@ import taci.usercontrol.exception.DataNotSuitableException;
 
 /**
  * The board with collection of {@link TaciCell}.
- * @author BINH
+ * @author HUY
  * @version 1.0
  * */
 public class TaciBoard extends JPanel implements Cloneable {

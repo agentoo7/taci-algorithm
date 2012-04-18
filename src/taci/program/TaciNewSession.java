@@ -34,33 +34,29 @@ import taci.usercontrol.exception.DataNotSuitableException;
  * New dialog. It contains some given board sample. You also can create your own
  * board by drag and drop the cell on the board.
  * 
- * @author BINH
+ * @author HUY
  * @version 1.0
  * */
 public class TaciNewSession extends JDialog {
 	private static final long serialVersionUID = 1L;
-	private List<TaciBoard> samples = new ArrayList<TaciBoard>();	
+	//private List<TaciBoard> samples = new ArrayList<TaciBoard>();	
 	private NewOwnTaciBoard ownBoard;
 	private int selectedIndex = 0; //The first sample is selected by default.
 	
 	//private  
 	
-	private TaciNewSession() {
+	public TaciNewSession() {
 		super(new JFrame(), NEW_TITLE);
 		setSize(NEW_WINDOW_WIDTH, NEW_WINDOW_HEIGHT);
 		setLayout(null);
 		setResizable(false);
-		setUndecorated(true);
-	}
-	
-	public TaciNewSession(List<TaciBoard> _samples) {
-		this();
-		samples = _samples;
+		setUndecorated(false);
+		
 		JPanel pnlSamples = new JPanel();
 		pnlSamples.setLayout(null);
 		pnlSamples.setLocation(0, 0);
 		pnlSamples.setSize(NEW_WINDOW_WIDTH - NEW_WINDOW_PADING + 20, NEW_WINDOW_HEIGHT - NEW_WINDOW_PADING);
-		pnlSamples.setBorder(BorderFactory.createTitledBorder("Sample taci board pattern"));
+		pnlSamples.setBorder(BorderFactory.createTitledBorder("Khởi tạo vị trí các con số"));
 		
 		int x = 10;
 		boolean firstRadioIsChecked = true;
@@ -70,88 +66,52 @@ public class TaciNewSession extends JDialog {
 				"4 steps");
 		final Iterator<String> stp = steps.iterator();
 	
-		for(TaciBoard tc : samples) {
-			tc.setLocation(x, NEW_WINDOW_HEIGHT / 9);
 			
-			JRadioButton jrb = new JRadioButton();
-			jrb.addActionListener(new ActionListener() {
-				
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					JRadioButton object = (JRadioButton) e.getSource();
-					if(object.isSelected()) {
-						selectedIndex = steps.indexOf(object.getText());
-					}
-				}
-			});
-			jrb.setLocation(x, NEW_WINDOW_HEIGHT * 3 / 5);
-			jrb.setText(stp.next());
-			jrb.setSize(90, 20);
-			jrb.setSelected(firstRadioIsChecked);
-			firstRadioIsChecked = false;
-			g.add(jrb);
-			
-			x += MOVE_DISTANCE;
-			pnlSamples.add(tc);
-			pnlSamples.add(jrb);
-			
-			JButton btnMake = new JButton();
-			btnMake.setSize(100, 20);
-			btnMake.setLocation(330,145);
-			btnMake.setText("Make it!!");
-			btnMake.addActionListener(new ActionListener() {
-				
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					setVisible(false);
-				}
-			});
-			pnlSamples.add(btnMake);
-		}
-		
 		//My own taci board
 		ownBoard = new NewOwnTaciBoard(TaciUtils.getRandomData());
 		ownBoard.setLocation(x, NEW_WINDOW_HEIGHT / 9);
 		
-		JRadioButton jrbYourOwn = new JRadioButton();
-		g.add(jrbYourOwn);
-		jrbYourOwn.addActionListener(new ActionListener() {
+			
+		pnlSamples.add(ownBoard);
+		
+		JButton btnMake = new JButton();
+		btnMake.setSize(100, 20);
+		btnMake.setLocation(10,145);
+		btnMake.setText("Khởi tạo!!");
+		btnMake.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JRadioButton object = (JRadioButton) e.getSource();
-				if(object.isSelected()) {
-					selectedIndex = -1;
-				}
+				setVisible(false);
 			}
 		});
-		jrbYourOwn.setLocation(x, NEW_WINDOW_HEIGHT * 3 / 5);
-		jrbYourOwn.setText("Use me");
-		jrbYourOwn.setSize(90, 20);
-		
-		pnlSamples.add(ownBoard);
-		pnlSamples.add(jrbYourOwn);
+		pnlSamples.add(btnMake);
 		
 		add(pnlSamples);
-		
 	}
 	
+	/*public TaciNewSession(List<TaciBoard> _samples) {
+		this();
+		//samples = _samples;
+		
+	}*/
+	
 	public TaciBoard getSample() {
-		if (selectedIndex != -1) {
+		/*if (selectedIndex != -1) {
 			return TaciUtils.copyOfBoard(samples.get(selectedIndex));
-		} else {
+		} else {*/
 			try {
 				return new TaciBoard(ownBoard.getData());
 			} catch (DataNotSuitableException e) {
 				e.printStackTrace();
 				return null;
 			}
-		}
+		//}
 	}
 	
 	/**
 	 * This class is just only used in this new Screen
-	 * @author BINH
+	 * @author HUY
 	 * */
 	private class NewOwnTaciBoard extends JPanel {
 		private static final long serialVersionUID = 1L;

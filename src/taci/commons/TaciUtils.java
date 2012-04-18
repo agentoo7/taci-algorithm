@@ -20,7 +20,7 @@ import taci.usercontrol.exception.DataNotSuitableException;
 
 /**
  * This class holds common functions for Taci. All its functions will be used many times in program.
- * @author BINH
+ * @author HUY
  * @version 1.0 
  * */
 public class TaciUtils {
