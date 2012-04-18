@@ -15,7 +15,7 @@ import javax.swing.JLabel;
  * value, the index on board, the goal index and many other decoration
  * attributes such as background color, fore color, location...
  * 
- * @author BINH
+ * @author HUY
  * @version 1.0
  * */
 public class TaciCell extends JLabel {

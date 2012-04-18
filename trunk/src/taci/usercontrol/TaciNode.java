@@ -14,7 +14,7 @@ import taci.commons.TaciUtils;
 /**
  * This is equivalent to {@link TaciBoard} class but it is the reduced version.
  * This is used for automation mode which does not to tracks all opened boards.
- * @author BINH
+ * @author HUY
  * @version 1.0
  * */
 public class TaciNode {

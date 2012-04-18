@@ -19,7 +19,7 @@ import taci.usercontrol.TaciBoard;
 
 /**
  * Pop-up for showing the detail per step.
- * @author BINH
+ * @author HUY
  * @version 1.0 
  * */
 public class TaciPopup extends JDialog {
