@@ -127,6 +127,8 @@ public class ReferenceConstants {
 	//TACI JFRAME
 	public static final int J_WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
 	public static final int J_HEIGHT = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().height;
+	public static final int HEIGHT_SCREEN = 300;
+	public static final int WIDTH_SCREEN = 300;
 	public static final boolean RESIZABLE = true;
 	public static final int INITIAL_LEFT_BOARD = 0;
 	public static final int INITIAL_TOP_BOARD = 0;
